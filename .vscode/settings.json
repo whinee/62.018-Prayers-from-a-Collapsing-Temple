@@ -1,0 +1,96 @@
+{
+//   "latex-workshop.latex.tools": [
+//     {
+//       "name": "build",
+//       "command": "./build.sh",
+//       "args": ["%DOC%"]
+//     }
+//   ],
+//   "latex-workshop.latex.recipes": [
+//     {
+//       "name": "mermaid+latexmk",
+//       "tools": ["build"]
+//     }
+//   ],
+    "latex-workshop.latex.rootFile.useSubFile": true,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-bibtex",
+                "-shell-escape",
+                "-pdf",
+                "%DOC%"
+            ]
+        }, 
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": ["%DOCFILE%"]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk ➞ makeglossaries ➞ latexmk",
+            "tools": [
+                "latexmk",
+                // "makeglossaries",
+                // "xelatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.watch.exclude": [
+        "figures/**"
+    ],
+    // Treat new files (before first save) as LaTeX files.
+    "files.defaultLanguage": "latex",
+    // Treat LaTeX package (.sty) and class (.cls) files as LaTeX files.
+    "files.associations": {
+        "*.sty": "latex",
+        "*.cls": "latex"
+    },
+    // Hide the following file types from the VS Code folder list.
+    "files.exclude": {
+        "**/*.4ct": true,
+        "**/*.4tc": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.idv": true,
+        "**/*.lg": true,
+        "**/*.lof": true,
+        "**/*.synctex.gz": true,
+        "**/*.synctex(busy)": true,
+        "**/*.tmp": true,
+        "**/*.xref": true,
+        "**/*.fls": true,
+        "**/*.loc": true,
+        "**/*.run.xml": true,
+        "**/*.soc": true,
+        "**/*.snm": true,
+        "**/*-SAVE-ERROR": true,
+        "**/*.ind": true,
+        "**/*.aux": true,
+        "**/*.bbl": true,
+        "**/*-blx.bib": true,
+        "**/*.idx": true,
+        "**/*.ilg": true,
+        "**/*.out": true,
+        "**/*.toc": true,
+        "**/*.lot": true,
+        "**/*.bcf": true,
+        "**/*.xdv": true,
+        "**/*.blg": true,
+        "**/*.glg": true,
+        "**/*.glo": true,
+        "**/*.gls": true,
+        "**/*.ist": true,
+        "**/*.xdy": true,
+        //   "**/*.log": true,
+    },
+    "latex-workshop.view.outline.sync.viewer": true,
+}
