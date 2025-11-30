@@ -10,6 +10,7 @@
 \usepackage{etoolbox}
 \usepackage{afterpage}
 \usepackage{endnotes}
+\usepackage{ragged2e}
 
 %%********************************************************************%%
 %%       The below macro controls the numbering of section heads      %%
@@ -42,6 +43,7 @@
   \let\footnote=\endnote
 }{%
   \pagebreak
+  \justifying
   \theendnotes
   \pagebreak
 }
@@ -87,5 +89,8 @@
 \bibliography{wiley}%
 
 \latexprintindex
+
+[PLACEHOLDER: Fifi]
+
 
 \end{document}
